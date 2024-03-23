@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+/* Colors */
+:root {
+    --white: #fff;
+    --primary-blue: #252aba;
+    --secondary-blue: #749ef2;
+    --tertiary-blue: #5561cd;
+    --mint: #bcedd7;
+    --green: #3a6750;
+    --peach: #fc8c76;
+    --yellow: #fbc048;
+    --brown: #995647;
+    --bg-blue: #edf3ff;
+    --gray: #6c757d;
+}
+
+/* Font styles */
+*, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+}
+
+nav div > a:first-of-type, h1,h3, h5 {
+    font-family: "Calistoga";
+}
+
+h1 {
+    font-size: 3.2rem;
+    color: var(--primary-blue);
+}
+
+h5 {
+    color: var(--primary-blue);
+}
+
+/* Background color */
+body {
+    background-color: var(--bg-blue);
+}
+
+/* Nav Logo */
+nav a img {
+    max-height: 30px;
+}
+
+/* General links and buttons */
+a {
+    color: var(--primary-blue);
+}
+
+    a:hover {
+        color: var(--secondary-blue);
+    }
+
+i {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+    i:hover {
+        color: var(--secondary-blue);
+    }
+
+.btn-primary {
+    color: #fff;
+    border-radius: 0.4rem;
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+    .btn-primary:hover {
+        background-color: var(--secondary-blue);
+        border-color: var(--secondary-blue);
+    }
+
+/* Milestones Grid */
+.milestones-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2%;
+    color: var(--white);
+}
+
+/* All cards */
+.milestones-card {
+    display:flex;
+    flex-direction: column;
+    width: 32%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 24px 30px 30px;
+    border-radius: 12px;
+}
+
+    /* 1st card */
+    .milestones-card:nth-child(5n-4) {
+        background-color: var(--secondary-blue);
+    }
+
+    /* 2nd card */
+    .milestones-card:nth-child(5n-3) {
+        background-color: var(--mint);
+        color: var(--green);
+    }
+
+    /* 3rd card */
+    .milestones-card:nth-child(5n-2) {
+        background-color: var(--peach);
+    }
+
+    /* 4th card */
+    .milestones-card:nth-child(5n-1) {
+        background-color: var(--yellow);
+        color: var(--brown);
+    }
+
+    /* 5th card */
+    .milestones-card:nth-child(5n-5) {
+        background-color: var(--tertiary-blue);
+        color: var(--white);
+    }
+
+/* Child chip */
+.card-chip {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.card-links a {
+    padding: 4px 8px 6px;
+    border-radius: 0.4rem;
+    background-color: var(--white);
+    color: var(--primary-blue);
+    text-decoration: none;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Home - App features */
+.key-1 {
+    grid-area: a;
+}
+
+.key-2 {
+    grid-area: b;
+}
+
+.key-3 {
+    grid-area: c;
+}
+
+.key-1, .key-2, .key-3 {
+    margin: 8px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--white);
+    color: var(--secondary-blue);
+}
+
+.key-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "a b c";
+}
+
+.key-grid p {
+    color: var(--gray);
+}
+
+/* Home - Image */
+.home-img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--secondary-blue);
+}
+.footer > div {
+    padding: 12px 0 16px 0;
+}
+footer p {
+    align-self: center;
+    margin: 0;
+}
+
+/* Bootstrap forms */
+.form-group {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+    .milestones-card {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    
+    .key-grid {
+        display: block;
+    }
+
+    .key-grid > div {
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title>{{title}}</title>
+
+    {{!-- css --}}
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    {{!-- nav bar --}}
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light px-3 my-3">
+            <div class="container-fluid">
+                {{!-- logo --}}
+                <a href="/" class="navbar-brand d-flex">
+                    <img src="/images/duckie-logo.svg" alt="Duckie Logo" />
+                </a>
+
+                {{!-- small screen toggler --}}
+                <button class="navbar-toggler light-bg-border" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#globalNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                {{!-- links --}}
+                <div class="collapse navbar-collapse" id="globalNav">
+                    <ul class="navbar-nav ms-auto align-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/children">Children</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/medical">Medical</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gallery">Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {{!-- main --}}
+    <div class="container my-5 py-5">
+        <main role="main" class="pb-3 mb-5">
+        {{{body}}}
+        </main>
+    </div>
+
+    {{!-- footer --}}
+    <footer class="border-top footer text-muted">
+        <div class="container d-md-flex flex-row text-center justify-content-md-between align-items-start">
+            <p class="text-muted">COMP 2106 Adv. Server-Side Scripting: MEAN </p>
+            <p class="text-muted">Duckie by Jihan Duerme 200523101</p>
+            <a href="https://github.com/jihaniqua/as2-duckie"><i class="bi bi-github fa-2x"></i></a>
+        </div>
+    </footer>
+
+    {{!-- js --}}
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/jquery.slim.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+</body>
+
+</html>
