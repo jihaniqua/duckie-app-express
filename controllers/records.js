@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
             });
         });
 
-        // load view and display json data
+        // load view, set page title and display json data
         res.render('records/index', {
             title: 'Health Records',
             records: records
@@ -50,7 +50,7 @@ router.get('/details/:_id', async (req, res) => {
             year: 'numeric'
         });
         
-        // load view and display single record
+        // load view, set page title and display single record
         res.render('records/details', {
             title: 'Health Record Details',
             record: record
@@ -107,7 +107,7 @@ router.get('/edit/:_id', async (req, res) => {
             day: '2-digit'
         });
 
-        // load view and pass data
+        // load view, set page title and display json data
         res.render('records/edit', {
             title: 'Edit Health Record Details',
             record: record
@@ -126,6 +126,24 @@ router.post('/edit/:_id', async (req, res) => {
         res.redirect('/records');
     } catch (error) {
         console.log('Failed to edit record', error);
+    }
+});
+
+/* POST /records/search => show records with keyword request on search */
+router.post('/search', async (req, res) => {
+    try {
+        // fetch records that match the keyword entered
+        let records = await Record.find({ $text: { $search: req.body.keyword }});
+
+        console.log("Received keyword:", req.body.keyword);
+        // load view, set page title and display search results
+        res.render('records/search', { 
+            title: 'Search Results', 
+            records: records,
+            keyword: req.body.keyword
+        });
+    } catch (error) {
+        console.log('Failed to search records', error);
     }
 });
 

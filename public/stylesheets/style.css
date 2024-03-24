@@ -53,7 +53,7 @@ a {
     a:hover {
         color: var(--secondary-blue);
     }
-
+    
 i {
     font-size: 28px;
     color: var(--primary-blue);
@@ -70,9 +70,10 @@ aside i,
     color: var(--white);
 }
 
-/* Back and delete icon size */
+/* Back, delete and search icon size */
 .bi-chevron-left,
-.bi-trash3 {
+.bi-trash3,
+.bi-search {
     font-size: 16px;
 }
 

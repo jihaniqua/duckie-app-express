@@ -23,5 +23,12 @@ let record = new mongoose.Schema({
     }
 });
 
+// search text keyword on child, event and notes functionality
+record.index({ 
+    child: 'text', 
+    event: 'text',
+    notes: 'text'
+});
+
 // make model public for controllers
 module.exports = mongoose.model('Record', record);
