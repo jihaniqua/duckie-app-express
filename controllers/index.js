@@ -10,27 +10,6 @@ router.get('/', (req, res) => {
     });
 });
 
-/* GET children page */
-router.get('/children', (req, res) => {
-    res.render('children', {
-        title: 'Children'
-    });
-});
-
-/* GET medical page */
-router.get('/medical', (req, res) => {
-    res.render('medical', {
-        title: 'Medical'
-    });
-});
-
-/* GET gallery page */
-router.get('/gallery', (req, res) => {
-    res.render('gallery', {
-        title: 'Gallery'
-    });
-});
-
 /* GET register page */
 router.get('/register', (req, res) => {
     res.render('register', {

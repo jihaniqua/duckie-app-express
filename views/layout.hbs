@@ -8,6 +8,7 @@
     <title>{{title}}</title>
 
     {{!-- css --}}
+    <link rel="stylesheet" href="/stylesheets/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
@@ -32,13 +33,18 @@
                 <div class="collapse navbar-collapse" id="globalNav">
                     <ul class="navbar-nav ms-auto align-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="/children">Children</a>
+                            <a class="nav-link" href="/records">Health</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/medical">Medical</a>
+                            <a class="nav-link" href="/artworks">Artworks</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/gallery">Gallery</a>
+                            <a class="nav-link" href="/login">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -47,11 +53,9 @@
     </header>
 
     {{!-- main --}}
-    <div class="container my-5 py-5">
-        <main role="main" class="pb-3 mb-5">
+    <main class="container my-5 py-md-5 py-4">
         {{{body}}}
-        </main>
-    </div>
+    </main>
 
     {{!-- footer --}}
     <footer class="border-top footer text-muted">

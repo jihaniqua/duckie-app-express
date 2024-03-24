@@ -1,0 +1,37 @@
+<section class="row pb-2">
+    <header class="col-md-8">
+        <h1>Health Records</h1>
+        <p>Add your child's medical information to keep medical records organized and up-to-date.</p>
+    </header>
+    <aside class="col-md-4 align-self-md-center text-md-end">
+        <p>
+            <a href="/" class="btn btn-primary">Add New</a>
+        </p>
+    </aside>
+</section>
+
+<section class="row">
+    {{#each records}}
+    <article class="col-lg-4 mb-3">
+        <div class="card">
+            <header class="card-header p-3">
+                <h5 class="mb-0">{{this.event}}</h5>
+            </header>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col col-lg-6 col-md-4">
+                        <p class="mb-0"><small>Date</small></p>
+                        <p>{{this.updatedDate}}</p>
+                    </div>
+                    <div class="col col-lg-6 col-md-4">
+                        <p class="mb-0"><small>Child</small></p>
+                        <p>{{this.child}}</p>
+                    </div>
+                </div>
+                <p class="card-text">{{this.details}}</p>
+                <a href="/records/details/{{this.id}}" class="btn btn-outline-primary btn-sm mb-1">Read More</a>
+            </div>
+        </div>
+    </article>
+    {{/each}}
+</section>

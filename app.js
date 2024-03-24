@@ -6,6 +6,15 @@ let logger = require('morgan');
 
 let index = require('./controllers/index');
 
+// custom controllers 
+let children = require('./controllers/children');
+let records = require('./controllers/records');
+let artworks = require('./controllers/artworks');
+
+// custom imports
+let mongoose = require('mongoose');
+let dotenv = require('dotenv');
+
 let app = express();
 
 // view engine setup
@@ -18,7 +27,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// connect to .env file if not in production mode
+if (process.env.NODE_ENV != 'production') {
+  require('dotenv').config();
+}
+
+// mongodb connection
+mongoose.connect(process.env.CONNECTION_STRING)
+.then((res) => { console.log('Connected to MongoDB') })
+.catch(() => { console.log('MongoDB connection failed') });
+
 app.use('/', index);
+app.use('/children', children);
+app.use('/records', records);
+app.use('/artworks', artworks);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
