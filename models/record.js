@@ -1,7 +1,8 @@
 let mongoose = require('mongoose');
 
-// define model fro CRUD
+// define model for CRUD
 let record = new mongoose.Schema({
+    _id : String,
     date: {
         type: Date,
         required: true
