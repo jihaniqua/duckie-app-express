@@ -5,7 +5,9 @@
     </header>
     <aside class="col-md-4 align-self-md-center text-md-end">
         <p>
-            <a href="/" class="btn btn-primary">Add New</a>
+            <a href="/records/create" class="btn btn-primary">
+                <i class="bi bi-plus-lg pe-2"></i>Create New
+            </a>
         </p>
     </aside>
 </section>
@@ -28,7 +30,7 @@
                         <p>{{this.child}}</p>
                     </div>
                 </div>
-                <p class="card-text">{{this.details}}</p>
+                <p class="card-text">{{this.notes}}</p>
                 <a href="/records/details/{{this.id}}" class="btn btn-outline-primary btn-sm mb-1">Read More</a>
             </div>
         </div>

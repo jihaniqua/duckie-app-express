@@ -6,43 +6,52 @@ let Record = require('../models/record');
 
 /* GET: /records => show list of records page */
 router.get('/', async (req, res) => {
-    // fetch all data from MongoDB using model
-    let records = await Record.find();
+    try {
+        // fetch all data from MongoDB using model
+        let records = await Record.find();
 
-    // format date before passing to the view
-    records.forEach(record => {
-        let date = new Date(record.date);
-        // update birthdate format to "Month Day, Year"
-        record.updatedDate = date.toLocaleDateString('en-CA', {
-            month: 'short',
-            day: '2-digit',
-            year: 'numeric' 
+        // format date before passing to the view
+        records.forEach(record => {
+            let date = new Date(record.date);
+            // update birthdate format to "Month Day, Year"
+            record.updatedDate = date.toLocaleDateString('en-CA', {
+                month: 'short',
+                day: '2-digit',
+                year: 'numeric'
+            });
         });
-    });
 
-    // load view and display json data
-    res.render('records/index', {
-        title: 'Health Records',
-        records: records
-    });
+        // load view and display json data
+        res.render('records/index', {
+            title: 'Health Records',
+            records: records
+        });
+    } catch {
+        console.log('Could not load records')
+    }
 });
 
 /* GET /records/:id => show one item from the list or records */
-router.get('/:_id', async (req, res) => {
+router.get('/details/:_id', async (req, res) => {
+    // fetch single data by id
     let record = await Record.findById(req.params._id);
 
-    let date = new Date(record.date);
-        // update birthdate format to "Month Day, Year"
-        record.updatedDate = date.toLocaleDateString('en-CA', {
-            month: 'short',
-            day: '2-digit',
-            year: 'numeric'
-        });
-
+    if (!record) {
+        return res.status(404).send('Record not found');
+    }
+    
+    // load view and display single record
     res.render('records/details', {
-        title: 'Health Record',
+        title: 'Health Record Details',
         record: record
     });
+});
+
+/* GET /records/create => show form to create a record */
+router.get('/create', (req, res) => {
+    res.render('records/create', {
+        title: 'Create New Record'
+    })
 });
 
 // make public

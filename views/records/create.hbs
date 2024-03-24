@@ -1,0 +1,27 @@
+<section class="row">
+    <h1>{{title}}</h1>
+    <form method="post">
+        {{!-- date --}}
+        <fieldset class="mb-3">
+            <label for="inputDate" class="form-label">Date of health event</label>
+            <input type="date" class="form-control" id="inputDate" required />
+        </fieldset>
+        {{!-- child --}}
+        <fieldset class="mb-3">
+            <label for="inputChild" class="form-label">Name of child</label>
+            <input type="text" placeholder="Name of child" class="form-control" id="inputChild" required />
+        </fieldset>
+        {{!-- health event --}}
+        <fieldset class="mb-3">
+            <label for="inputEvent" class="form-label">Health event</label>
+            <input type="text" placeholder="Health event" class="form-control" id="inputChild" aria-describedby="eventHelp" required/>
+            <div id="eventHelp" class="form-text">E.g. Allergy, General Health, Health Maintenance, Vaccination, Medication. Surgery, etc.</div>
+        </fieldset>
+        {{!-- notes --}}
+        <fieldset class="mb-3">
+            <label for="inputNotes" class="form-label">Detailed Notes</label>
+            <textarea placeholder="Type your notes here..." class="form-control" id="inputNotes" rows="3" required></textarea>
+        </fieldset>
+        <button class="btn btn-primary">Save</button>
+    </form>
+</section>

@@ -14,12 +14,9 @@ let record = new mongoose.Schema({
         type: String,
         required: true
     },
-    details: {
+    notes: {
         type: String,
         required: true
-    },
-    medication: {
-        type: String
     }
 });
 
