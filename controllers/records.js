@@ -41,9 +41,15 @@ router.get('/details/:_id', async (req, res) => {
         if (!record) {
             console.log('No data fetched');
         } 
-        else {
-            console.log(record);
-        }
+
+        // let date = new Date(record.date);
+
+        // // update date format to "Month Day, Year"
+        // record.updatedDate = date.toLocaleDateString('en-CA', {
+        //     month: 'short',
+        //     day: '2-digit',
+        //     year: 'numeric'
+        // });
         
         // load view and display single record
         res.render('records/details', {
