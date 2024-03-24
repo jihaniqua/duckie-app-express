@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-// define model fro CRUD
+// define model for CRUD
 let artwork = new mongoose.Schema({
     date: {
         type: Date,

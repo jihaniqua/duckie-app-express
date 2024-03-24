@@ -4,28 +4,28 @@
         {{!-- date --}}
         <fieldset class="mb-4">
             <label for="date" class="form-label"><small>Date of health event: *</small></label>
-            <input name="date" id="date" class="form-control" type="date" required />
+            <input name="date" id="date" class="form-control" type="date" value="{{record.updatedDate}}" required />
         </fieldset>
         {{!-- child name --}}
         <fieldset class="mb-4">
             <label for="child" class="form-label"><small>Name of child: *</small></label>
-            <input name="child" id="child" class="form-control" placeholder="Name of child" required />
+            <input name="child" id="child" class="form-control" value="{{record.child}}" required />
         </fieldset>
         {{!-- health event --}}
         <fieldset class="mb-4">
             <label for="event" class="form-label"><small>Health event: *</small></label>
-            <input name="event" id="event" class="form-control" placeholder="Health event" aria-describedby="eventHelp" required/>
+            <input name="event" id="event" class="form-control" value="{{record.event}}"  aria-describedby="eventHelp" required/>
             <div id="eventHelp" class="form-text">E.g. Allergy, General Health, Health Maintenance, Vaccination, Medication, Surgery, etc.</div>
         </fieldset>
         {{!-- notes --}}
         <fieldset class="mb-4">
             <label for="notes" class="form-label"><small>Detailed Notes:</small></label>
-            <textarea name="notes" id="notes" class="form-control" rows="4" placeholder="Type your notes here..."></textarea>
+            <textarea name="notes" id="notes" class="form-control" rows="4">{{record.notes}}</textarea>
         </fieldset>
         {{!-- user --}}
         <fieldset class="mb-4">
             <label for="username" class="form-label"><small>Username: *</small></label>
-            <input name="username" id="username" class="form-control" placeholder="Temporary" required />
+            <input name="username" id="username" class="form-control" value="{{record.username}}" required />
             {{!-- <input name="username" id="username" type="hidden" value="{{user.username}}" />
             <input name="usernameDisplay" id="usernameDisplay" class="form-control" required disabled value="{{user.username}}" /> --}}
         </fieldset>

@@ -13,6 +13,7 @@
     --brown: #995647;
     --bg-blue: #edf3ff;
     --gray: #6c757d;
+    --error: #dc3545;
 }
 
 /* Font styles */
@@ -62,11 +63,26 @@ i {
         color: var(--secondary-blue);
     }
 
-/* "+" icon on "Create New" buttons */
-aside i {
+/* Create and Edit icon */
+aside i,
+.bi-pencil-square {
     font-size: 16px;
     color: var(--white);
 }
+
+/* Back and delete icon size */
+.bi-chevron-left,
+.bi-trash3 {
+    font-size: 16px;
+}
+
+/* Delete icon color */
+.bi-trash3 {
+    color: var(--error)
+}
+    a:hover .bi-trash3 {
+        color: var(--white);
+    }
 
 .btn-primary {
     color: #fff;
