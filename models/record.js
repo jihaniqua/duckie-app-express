@@ -17,6 +17,10 @@ let record = new mongoose.Schema({
     notes: {
         type: String,
         required: true
+    },
+    username: {
+        type: String,
+        required: true
     }
 });
 

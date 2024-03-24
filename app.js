@@ -5,9 +5,9 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let index = require('./controllers/index');
+let users = require('./controllers/users');
 
 // custom controllers 
-let children = require('./controllers/children');
 let records = require('./controllers/records');
 let artworks = require('./controllers/artworks');
 
@@ -38,7 +38,7 @@ mongoose.connect(process.env.CONNECTION_STRING)
 .catch(() => { console.log('MongoDB connection failed') });
 
 app.use('/', index);
-app.use('/children', children);
+app.use('/users', users);
 app.use('/records', records);
 app.use('/artworks', artworks);
 

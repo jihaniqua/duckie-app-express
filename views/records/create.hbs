@@ -1,27 +1,36 @@
-<section class="row">
-    <h1>{{title}}</h1>
+<section class="row create-field">
+    <h1 class="mb-4">{{title}}</h1>
     <form method="post">
         {{!-- date --}}
-        <fieldset class="mb-3">
-            <label for="inputDate" class="form-label">Date of health event</label>
-            <input type="date" class="form-control" id="inputDate" required />
+        <fieldset class="mb-4">
+            <label for="date" class="form-label"><small>Date of health event: *</small></label>
+            <input name="date" id="date" class="form-control" type="date" required />
         </fieldset>
         {{!-- child --}}
-        <fieldset class="mb-3">
-            <label for="inputChild" class="form-label">Name of child</label>
-            <input type="text" placeholder="Name of child" class="form-control" id="inputChild" required />
+        <fieldset class="mb-4">
+            <label for="child" class="form-label"><small>Name of child: *</small></label>
+            <input name="child" placeholder="Name of child" id="child" class="form-control" required />
         </fieldset>
         {{!-- health event --}}
-        <fieldset class="mb-3">
-            <label for="inputEvent" class="form-label">Health event</label>
-            <input type="text" placeholder="Health event" class="form-control" id="inputChild" aria-describedby="eventHelp" required/>
+        <fieldset class="mb-4">
+            <label for="event" class="form-label"><small>Health event: *</small></label>
+            <input name="event" placeholder="Health event" id="event" class="form-control" aria-describedby="eventHelp" required/>
             <div id="eventHelp" class="form-text">E.g. Allergy, General Health, Health Maintenance, Vaccination, Medication. Surgery, etc.</div>
         </fieldset>
         {{!-- notes --}}
-        <fieldset class="mb-3">
-            <label for="inputNotes" class="form-label">Detailed Notes</label>
-            <textarea placeholder="Type your notes here..." class="form-control" id="inputNotes" rows="3" required></textarea>
+        <fieldset class="mb-4">
+            <label for="notes" class="form-label"><small>Detailed Notes: *</small></label>
+            <textarea name="notes" placeholder="Type your notes here..." id="notes" class="form-control" rows="4" required></textarea>
         </fieldset>
-        <button class="btn btn-primary">Save</button>
+        {{!-- user --}}
+        <fieldset class="mb-4">
+            <label for="username" class="form-label"><small>Username: *</small></label>
+            <input name="username" placeholder="Temporary" id="username" class="form-control" required />
+            {{!-- <input name="username" id="username" type="hidden" value="{{user.username}}" />
+            <input name="usernameDisplay" id="usernameDisplay" class="form-control" required disabled value="{{user.username}}" /> --}}
+        </fieldset>
+        <div class="d-grid">
+            <button class="btn btn-primary mb-4">Save</button>
+        </div>
     </form>
 </section>

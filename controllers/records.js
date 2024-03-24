@@ -26,32 +26,49 @@ router.get('/', async (req, res) => {
             title: 'Health Records',
             records: records
         });
-    } catch {
-        console.log('Could not load records')
+    } catch (error) {
+        console.log('Could not load records', error)
     }
 });
 
-/* GET /records/:id => show one item from the list or records */
+// !!!!!! FIX THIS LATER
+/* GET /records/details/:id => show one item from the health record list */
 router.get('/details/:_id', async (req, res) => {
-    // fetch single data by id
-    let record = await Record.findById(req.params._id);
+    try {
+        // fetch single data by id
+        let record = await Record.findById(req.params._id);
 
-    if (!record) {
-        return res.status(404).send('Record not found');
+        if (!record) {
+            console.log('No data fetched');
+        } 
+        else {
+            console.log(record);
+        }
+        
+        // load view and display single record
+        res.render('records/details', {
+            title: 'Health Record Details',
+            record: record
+        });
+    } catch (error) {
+        console.log('Could not load record details', error);
     }
-    
-    // load view and display single record
-    res.render('records/details', {
-        title: 'Health Record Details',
-        record: record
-    });
 });
 
 /* GET /records/create => show form to create a record */
 router.get('/create', (req, res) => {
     res.render('records/create', {
         title: 'Create New Record'
-    })
+    });
+});
+
+/* POST /records/create => process form submission to save new health record */
+router.post('/create', async (req, res) => {
+    // use mongoose model to save new post to MongoDB
+    await Record.create(req.body);
+
+    // reload the records/index to see updated health record list
+    res.redirect('/records');
 });
 
 // make public

@@ -62,6 +62,7 @@ i {
         color: var(--secondary-blue);
     }
 
+/* "+" icon on "Create New" buttons */
 aside i {
     font-size: 16px;
     color: var(--white);
@@ -143,6 +144,11 @@ aside i {
     text-decoration: none;
     text-decoration: none;
     font-weight: 600;
+}
+
+/* Fields */
+.create-field {
+    max-width: 600px;
 }
 
 /* Home - App features */
