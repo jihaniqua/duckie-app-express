@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    {{!-- js --}}
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/jquery.slim.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/popper.min.js" defer></script>
+    <script src="/javascripts/scripts.js" defer></script>
 </head>
 
 <body>
@@ -40,12 +47,21 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
+                        {{#if user}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/register">Register</a>
+                            <a class="nav-link" href="#">{{user.username}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/auth/logout">Logout</a>
                         </li>
+                        {{else}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth/login">Login</a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -65,12 +81,6 @@
             <a href="https://github.com/jihaniqua/as2-duckie"><i class="bi bi-github fa-2x"></i></a>
         </div>
     </footer>
-
-    {{!-- js --}}
-    <script src="/javascripts/jquery.min.js"></script>
-    <script src="/javascripts/jquery.slim.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/popper.min.js"></script>
 </body>
 
 </html>

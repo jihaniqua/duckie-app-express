@@ -26,8 +26,8 @@ router.get('/', async (req, res) => {
             title: 'Health Records',
             records: records
         });
-    } catch (error) {
-        console.log('Could not load records', error)
+    } catch (err) {
+        console.log('Could not load records', err)
     }
 });
 
@@ -55,8 +55,8 @@ router.get('/details/:_id', async (req, res) => {
             title: 'Health Record Details',
             record: record
         });
-    } catch (error) {
-        console.log('Could not load record details', error);
+    } catch (err) {
+        console.log('Could not load record details', err);
     }
 });
 
@@ -75,8 +75,8 @@ router.post('/create', async (req, res) => {
 
         // after creation, redirect to index to see updated health record list
         res.redirect('/records');
-    } catch (error) {
-        console.log('Failed to create a new record', error);
+    } catch (err) {
+        console.log('Failed to create a new record', err);
     }
 });
 
@@ -87,8 +87,8 @@ router.get('/delete/:_id', async (req, res) => {
 
         // after deletion, redirect to index to see updated health record list
         res.redirect('/records');
-    } catch (error) {
-        console.log('Failed to delete record', error);
+    } catch (err) {
+        console.log('Failed to delete record', err);
     }
 });
 
@@ -112,8 +112,8 @@ router.get('/edit/:_id', async (req, res) => {
             title: 'Edit Health Record Details',
             record: record
         });
-    } catch (error) {
-        console.log('Could not load record details', error);
+    } catch (err) {
+        console.log('Could not load record details', err);
     }
 });
 
@@ -124,28 +124,29 @@ router.post('/edit/:_id', async (req, res) => {
 
         // after deletion, redirect to index to see updated health record list
         res.redirect('/records');
-    } catch (error) {
-        console.log('Failed to edit record', error);
+    } catch (err) {
+        console.log('Failed to edit record', err);
     }
 });
 
+// keyword search: to fix - not fetching queries
 /* POST /records/search => show records with keyword request on search */
-router.post('/search', async (req, res) => {
-    try {
-        // fetch records that match the keyword entered
-        let records = await Record.find({ $text: { $search: req.body.keyword }});
+// router.post('/search', async (req, res) => {
+//     try {
+//         // fetch records that match the keyword entered
+//         let records = await Record.find({ $text: { $search: req.body.keyword }});
 
-        console.log("Received keyword:", req.body.keyword);
-        // load view, set page title and display search results
-        res.render('records/search', { 
-            title: 'Search Results', 
-            records: records,
-            keyword: req.body.keyword
-        });
-    } catch (error) {
-        console.log('Failed to search records', error);
-    }
-});
+//         console.log("Received keyword:", req.body.keyword);
+//         // load view, set page title and display search results
+//         res.render('records/search', { 
+//             title: 'Search Results', 
+//             records: records,
+//             keyword: req.body.keyword
+//         });
+//     } catch (err) {
+//         console.log('Failed to search records', err);
+//     }
+// });
 
 // make public
 module.exports = router;

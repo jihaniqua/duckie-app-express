@@ -53,7 +53,7 @@ a {
     a:hover {
         color: var(--secondary-blue);
     }
-    
+
 i {
     font-size: 28px;
     color: var(--primary-blue);
@@ -63,9 +63,11 @@ i {
         color: var(--secondary-blue);
     }
 
-/* Create and Edit icon */
+/* Create, edit and register icon */
 aside i,
-.bi-pencil-square {
+.bi-pencil-square,
+.bi-person-fill-add,
+.bi-person-fill-check {
     font-size: 16px;
     color: var(--white);
 }
@@ -96,6 +98,17 @@ aside i,
         background-color: var(--secondary-blue);
         border-color: var(--secondary-blue);
     }
+
+/* Show/Hide image */
+#imgShowHide {
+    width: 30px;
+    height: 30px
+}
+
+/* Password confirm field caption */
+#pwMsg {
+    font-size: .875em;
+}
 
 /* Milestones Grid */
 .milestones-grid {

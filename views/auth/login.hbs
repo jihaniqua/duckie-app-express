@@ -1,0 +1,21 @@
+<h1 class="mb-4">Login</h1>
+{{#if messages}}
+<p class="alert alert-danger">Invalid Login</p>
+{{else}}
+<p class="alert alert-secondary">Please enter your credentials</p>
+{{/if}}
+<form method="post">
+    <fieldset class="mb-4">
+        <label for="username" class="form-label"><small>Username: *</small></label>
+        <input name="username" id="username" class="form-control" required />
+    </fieldset>
+    <fieldset class="mb-4">
+        <label for="password" class="form-label">Password: *</label>
+        <input name="password" id="password" class="form-control" type="password" required/>
+    </fieldset>
+    <div class="d-grid">
+        <button class="btn btn-primary mb-4" onclick="return checkPassword();">
+            <i class="bi bi-person-fill-check pe-2"></i>Login
+        </button>
+    </div>
+</form>
