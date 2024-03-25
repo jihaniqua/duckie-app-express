@@ -38,18 +38,22 @@
 
                 {{!-- links --}}
                 <div class="collapse navbar-collapse" id="globalNav">
-                    <ul class="navbar-nav ms-auto align-center">
+                    <ul class="navbar-nav ms-auto">
+                        {{#if user}}
                         <li class="nav-item">
                             <a class="nav-link" href="/records">Health</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/artworks">Artworks</a>
                         </li>
+                        {{/if}}
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         {{#if user}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{user.username}}</a>
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-person-circle me-2"></i>{{user.username}}
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/auth/logout">Logout</a>

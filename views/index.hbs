@@ -1,40 +1,66 @@
-<div class="d-flex flex-column text-center">
+<section class="d-flex flex-column text-center">
+    {{#if user}}
+        <h3 class="mb-4">Welcome, {{user.username}}!</h3>
+    {{/if}}
     <h1>{{title}}: A Keepsake App for Parents</h1>
     <p class="w-75 m-auto">Experience the joy of parenthood without missing a beat. Duckie helps you simplify, organize, and preserve every precious memory of your child's life.</p>
-</div>
+</section>
 
 {{!-- image --}}
-<div class="container my-5">
+<section class="container my-5">
     <img src="/images/mom-dad-moments.png" alt="Mom and Dad Moments" class="home-img" />
-    {{!-- <Photo credit from Pexels: 
-        Father-son - https://www.pexels.com/photo/father-teaching-his-son-how-to-ride-a-bike-5792901/
-        Mother-daughter - https://www.pexels.com/photo/mother-playing-with-daughter-on-sofa-4868538/ --}}
-</div>
+    {{!-- <Photo credit from Pexels: Father-son -
+        https://www.pexels.com/photo/father-teaching-his-son-how-to-ride-a-bike-5792901/ Mother-daughter -
+        https://www.pexels.com/photo/mother-playing-with-daughter-on-sofa-4868538/ --}} 
+</section>
 
+{{#if user}}
+<section class="row justify-content-center">
+    <div class="key-1 col-lg-3 col-md-6 mb-3">
+        <div>
+            <h2>Health Records</h2>
+            <p>Log your child's preventive health needs and medical history</p>
+        </div>
+        <a href="/records" class="btn btn-outline-primary btn-sm">View All</a>
+        <a href="/records/create" class="btn btn-outline-success btn-sm">
+            <i class="bi bi-plus-lg"></i>
+        </a>
+    </div>
+    <div class="key-2 col-lg-3 col-md-6 mb-3">
+        <div>
+            <h2>Artwork Gallery</h2>
+            <p>Explore the artwork gallery feature to showcase your child's artwork and their inspiration behind each one.</p>
+        </div>
+        <a href="/artworks" class="btn btn-outline-primary btn-sm">View All</a>
+        <a href="/artworks/create" class="btn btn-outline-success btn-sm">
+            <i class="bi bi-plus-lg"></i>
+        </a>
+    </div>
+</section>
+{{else}}
 {{!-- features --}}
-<div class="key-grid">
-    <div class="key-1">
-        <div class="app-features mb-3">
-            <div>
-                <h5>Capture special memories and thoughts</h5>
-                <p>Use the journal feature to record how you felt and what happened during those special moments in your child's life.</p>
-            </div>
-        </div>
+<section>
+    <header class="col-xl-6 col-md-8 col-10 text-center m-auto mb-4">
+        <h2>One app to store it all</h2>
+        <p>Stay organized and easily keep track of all child-related information in a single app that you can pass on to your child as a cherished digital legacy.</p>
+    </header>
+    <div class="row justify-content-center">
+        <article class="key-1 col-lg-3 col-md-5 mb-3">
+            <h5>Document health information and history</h5>
+            <p class="m-0">Use the health record feature to log health updates and noteworthy events concerning your child's well-being.</p>
+        </article>
+        <article class="key-2 col-lg-3 col-md-5 mb-3">
+            <h5>Preserve moments of creativity and imagination</h5>
+            <p class="m-0">Explore the artwork gallery feature to showcase your child's artwork and their inspiration behind each one.</p>
+        </article>
+            <article class="key-1 col-lg-3 col-md-5 mb-3">
+            <h5>Capture special memories and thoughts</h5>
+            <p class="m-0">Use the journal feature to record how you felt and what happened during those special moments in your child's life.</p>
+        </article>
+        <article class="key-2 col-lg-3 col-md-5 mb-3">
+            <h5>Celebrate milestones and achievements</h5>
+            <p class="m-0">Keep a detailed record of important dates and the significant milestones your child has achieved throughout the years.</p>
+        </article>
     </div>
-    <div class="key-2">
-        <div class="app-features mb-3">
-            <div>
-                <h5>Celebrate milestones and achievements</h5>
-                <p>Keep a detailed record of important dates and the significant milestones your child has achieved throughout the years.</p>
-            </div>
-        </div>
-    </div>
-    <div class="key-3">
-        <div class="app-features mb-3">
-            <div>
-                <h5>One app to store it all</h5>
-                <p>Stay organized and easily keep track of all child-related information in a single app that you can pass on to your child as a cherished digital legacy.</p>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
+{{/if}}

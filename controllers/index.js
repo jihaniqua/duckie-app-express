@@ -6,21 +6,24 @@ let axios = require('axios');
 /* GET home page */
 router.get('/', (req, res) => {
     res.render('index', {
-        title: 'Duckie'
+        title: 'Duckie',
+        user: req.user
     });
 });
 
 /* GET register page */
 router.get('/register', (req, res) => {
     res.render('register', {
-        title: 'Register'
+        title: 'Register',
+        user: req.user
     });
 });
 
 /* GET login page */
 router.get('/login', (req, res) => {
     res.render('login', {
-        title: 'Login'
+        title: 'Login',
+        user: req.user
     });
 });
 

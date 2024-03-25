@@ -43,7 +43,7 @@ mongoose.connect(process.env.CONNECTION_STRING)
 // passport local aut config
 // session setup
 app.use(session({
-    secret: 'string-to-be-moved-in-env',
+    secret: process.env.PASSPORT_SECRET,
     resave: true,
     saveUninitialized: false
 }));

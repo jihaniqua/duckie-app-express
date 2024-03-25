@@ -32,7 +32,6 @@ router.get('/login', (req, res) => {
     let messages = req.session.messages || [];
     
     // clear out session error messages
-    //
     req.session.messages = [];
 
     res.render('auth/login', { 
@@ -42,7 +41,7 @@ router.get('/login', (req, res) => {
      });
 });
 
-/* POST /login => process login form submission */
+/* POST /login => process login form submission by checking db */
 router.post('/login', passport.authenticate('local', {
     // on success, redirect to records
     successRedirect: '/records',
