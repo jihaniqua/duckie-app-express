@@ -70,9 +70,10 @@ i {
     color: var(--gray);
 }
 
-/* Create, edit and register icon */
+/* Create, edit, download, and register icon */
 .bi-plus,
 .bi-plus-lg,
+.bi-download,
 .btn-outline-success:hover .bi-plus-lg,
 .bi-pencil-square,
 .bi-person-fill-add,

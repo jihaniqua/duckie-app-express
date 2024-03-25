@@ -1,11 +1,15 @@
 let express = require('express');
 let router = express.Router();
 
-// Records model for CRUD
+// for PDF download
+let puppeteer = require('puppeteer');
+
+// records model for CRUD
 let Record = require('../models/record');
 
 // global auth check
 let authCheck = require('../authCheck');
+const record = require('../models/record');
 
 /* GET: /records => show list of records page */
 router.get('/', authCheck, async (req, res) => {
@@ -32,6 +36,105 @@ router.get('/', authCheck, async (req, res) => {
         });
     } catch (err) {
         console.log('Could not load records', err)
+    }
+});
+
+/* GET /records/download => download pdf of records */
+router.get('/download', authCheck, async (req, res) => {
+    try{
+        // fetch all data of the user logged in from MongoDB using model in descending order
+        let records = await Record.find({ username: req.user.username }).sort({ 'date': -1 });
+
+        // format date before passing to the view
+        records.forEach(record => {
+            let date = new Date(record.date);
+            // update birthdate format to "Month Day, Year"
+            record.updatedDate = date.toLocaleDateString('en-CA', {
+                month: 'short',
+                day: '2-digit',
+                year: 'numeric'
+            });
+        });
+
+        // pdf content
+        let view = `
+            <html>
+                <style>
+                    body { 
+                        margin: 80px 120px;
+                        font-family: Inter, sans-serif;
+                    }
+                    h1, h3, h4 {
+                        margin-top: 0;
+                    }
+                    h3 {
+                        margin-bottom: 10px;
+                    }
+                    h4 {
+                        margin-bottom: 10px;
+                        font-weight: 400;
+                    }
+                    h1, p {
+                        margin-bottom: 0;
+                    }
+                    div {
+                        padding: 20px;
+                        margin-bottom: 20px;
+                        border: 1px solid #BCBCBC;
+                        border-radius: 8px;
+                    }
+                    .source {
+                        margin-bottom: 30px;
+                    }
+                </style>
+            <body>
+                <h1>Health Records PDF</h1>
+                <p class="source">Generated from Duckie App</p>
+        `;
+
+        records.forEach(record => {
+            view += `
+                <div>
+                    <h3>${record.event}</h3>
+                    <h4>${record.updatedDate} • ${record.child}</h4>
+                    <p>${record.notes}</p>
+                </div>
+            `
+        });
+
+        view += `
+            </body>
+            </html>
+        `;
+
+        // load view
+        // res.render('pdf-template', { records: records, user: req.user }, async (err, view) => {
+        //     if (err) {
+        //         console.log('Cound not download records', err);
+        //         return;
+        //     }
+
+        // launch the browser
+        let browser = await puppeteer.launch();
+        // create a page
+        let page = await browser.newPage();
+
+        // download pdf
+        await page.setContent(view);
+        let buffer = await page.pdf({
+            format: 'A4'
+        });
+
+        await browser.close();
+
+        // send pdf as response
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename="health-records.pdf"');
+        res.send(buffer);
+        // });
+    }
+    catch (err) {
+        console.log('Could not download pdf', err)
     }
 });
 
@@ -154,6 +257,7 @@ router.post('/edit/:_id', authCheck, async (req, res) => {
         console.log('Failed to edit record', err);
     }
 });
+
 
 // make public
 module.exports = router;

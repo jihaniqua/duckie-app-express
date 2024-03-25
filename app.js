@@ -4,11 +4,10 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+// controllers
 let index = require('./controllers/index');
 let users = require('./controllers/users');
 let auth = require('./controllers/auth');
-
-// custom controllers 
 let records = require('./controllers/records');
 let artworks = require('./controllers/artworks');
 
