@@ -13,6 +13,7 @@
     --brown: #995647;
     --bg-blue: #edf3ff;
     --gray: #6c757d;
+    --light-gray: #9ba8b4;
     --error: #dc3545;
     --success: #198754;
 }
@@ -36,6 +37,10 @@ h1 {
     font-size: 1.6rem;
 }
 
+.h1-md {
+    font-size: 2.2rem;
+}
+
 h2, h5 {
     color: var(--primary-blue);
 }
@@ -55,7 +60,14 @@ a {
     color: var(--primary-blue);
 }
 
-    a:hover {
+.btn-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+    a:hover,
+    .btn-link:hover,
+    .btn-link:hover .bi-chevron-left {
         color: var(--secondary-blue);
     }
 
@@ -98,6 +110,14 @@ i {
     color: var(--error)
 }
     a:hover .bi-trash3 {
+        color: var(--white);
+    }
+
+/* Download icon color */
+.bi-download {
+    color: #0d6efd;
+}
+    a:hover .bi-download {
         color: var(--white);
     }
 
@@ -188,6 +208,25 @@ i {
     text-decoration: none;
     text-decoration: none;
     font-weight: 600;
+}
+
+/* Health record card */
+.health-card header {
+    border-radius: 12px;
+    background-color: #F8F8F8;
+}
+
+.health-card .card-body {
+    padding: 16px;
+    background-color: var(--white);
+}
+
+/* Records Date and Child title on card */
+.card-sm {
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--light-gray);
 }
 
 /* Fields */

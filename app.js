@@ -9,7 +9,6 @@ let index = require('./controllers/index');
 let users = require('./controllers/users');
 let auth = require('./controllers/auth');
 let records = require('./controllers/records');
-let artworks = require('./controllers/artworks');
 
 // custom imports
 let mongoose = require('mongoose');
@@ -62,7 +61,6 @@ passport.deserializeUser(User.deserializeUser()); // retrieve user based on stor
 app.use('/', index);
 app.use('/users', users);
 app.use('/records', records);
-app.use('/artworks', artworks);
 app.use('/auth', auth);
 
 // catch 404 and forward to error handler
