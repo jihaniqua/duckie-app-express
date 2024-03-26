@@ -5,7 +5,7 @@ by Jihan Duerme
 
 ## Assignment 3 - NodeJS Secure CRUD App using ExpressJS, MongoDB and HBS Templating
 ### Accomplished App Requirements
-- 1 feature implemented - Puppeteer:
+- Feature implemented - Puppeteer:
     - Download all records in a formatted PDF 
     - Download logged in user's records in a formatted PDF 
 - MongoDB database collections: Users & Records
@@ -14,7 +14,7 @@ by Jihan Duerme
 - Health Records (read-only) as public page (for this assignment only)
 - Create-Edit-Delete pages for authenticated users only
 - Created registration and login pages
-- On Login, home page shows welcome message with username
+- Home page welcome message with username
 - Delete confirmation
 - Code comments
 
@@ -34,4 +34,4 @@ Puppeteer - for generating PDF files from JSON data
 Multer - for uploading images and downloading files
 
 ### Live site
-https://express-duckie.vercel.app/
+https://express-duckie.onrender.com/
