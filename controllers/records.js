@@ -107,10 +107,7 @@ router.get('/download', authCheck, async (req, res) => {
         `;
 
         // launch the browser
-        let browser = await puppeteer.launch({
-            headless: true,
-            executablePath: '/path/to/Chrome'
-        });
+        let browser = await puppeteer.launch();
         // create a page
         let page = await browser.newPage();
 
@@ -201,10 +198,7 @@ router.get('/download-all', authCheck, async (req, res) => {
         `;
 
         // launch the browser
-        let browser = await puppeteer.launch({
-            headless: true,
-            executablePath: '/path/to/Chrome'
-        });
+        let browser = await puppeteer.launch();
         // create a page
         let page = await browser.newPage();
 
