@@ -32,6 +32,3 @@ List if npm packages I’m considering using:
 Cron - for scheduling and reminders
 Puppeteer - for generating PDF files from JSON data
 Multer - for uploading images and downloading files
-
-### Live site
-https://express-duckie.onrender.com/
